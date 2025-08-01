@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ZARA TECHNOLOGY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        /* --- Base Styles (Mobile-First) --- */
+        body {
+            background-color: black;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- New Header and Navigation Styles --- */
+        .header-container {
+            background-color: gray;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin: -20px -15px 20px;
+        }
+        
+        .header-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        #menu-toggle {
+            background: none;
+            border: none;
+            color: black;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: gray;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-link {
+            color: black;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        /* --- Main Content Styles --- */
+        .contact-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .contact-section h1 {
+            color: orchid;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .contact-section p {
+            color: rgb(202, 198, 198);
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+        
+        .contact-form {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: orchid;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            background-color: #2a2a2a;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: orchid;
+            box-shadow: 0 0 5px rgba(255, 128, 255, 0.5);
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: rgb(70, 51, 238);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: rgb(50, 31, 218);
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .contact-item i {
+            color: orchid;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        /* New CSS for the email link */
+        .contact-item a {
+            color: orchid; /* Sets link color */
+            text-decoration: none; /* Removes underline */
+            transition: color 0.3s ease;
+        }
+        .contact-item a:hover {
+            color: white; /* Changes color on hover */
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Desktop Media Query --- */
+        @media (min-width: 768px) {
+            .contact-section h1 {
+                font-size: 3em;
+            }
+
+            .contact-details {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .contact-item {
+                flex: 1;
+            }
+
+            .contact-details .contact-item:nth-child(2) {
+                margin: 0 20px;
+            }
+
+            .header-container {
+                justify-content: space-between;
+                background-color: transparent;
+                margin: 0 auto 40px;
+            }
+            
+            .header-brand {
+                color: red;
+            }
+            
+            #menu-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                position: static;
+                flex-direction: row;
+                gap: 20px;
+                width: auto;
+                background-color: transparent;
+                box-shadow: none;
+            }
+
+            .nav-link {
+                color: white;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header-container">
+            <div class="header-brand">ZARA TECHNOLOGY</div>
+            <button id="menu-toggle">
+                <i class="fas fa-ellipsis-h"></i>
+            </button>
+            <nav id="nav-links" class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="about.html" class="nav-link"><i class="fa-solid fa-user"></i> About Zara</a>
+                <a href="service.html" class="nav-link"><i class="fa-solid fa-gears"></i> Services</a>
+                <a href="gallery.html" class="nav-link"><i class="fa-solid fa-images"></i> Gallery</a>
+                <a href="contact.html" class="nav-link"><i class="fa-solid fa-phone"></i> Contact Us</a>
+            </nav>
+        </header>
+        
+        <main>
+            <header class="contact-section">
+                <h1>Get in Touch</h1>
+                <p>We'd love to hear from you! Please fill out the form below or use our contact details to reach out.</p>
+            </header>
+
+            <section class="contact-form">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </section>
+            
+            <section class="contact-details">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+91 93447 01654</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:abdullaheee147@gmail.com">abdullaheee147@gmail.com</a>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Address</h3>
+                    <p>107J/133Anna Nagar, <br>Thoothukkudi 628008, <br>Tamil Nadu, <br>India</p>
+                </div>
+            </section>
+            
+            <section class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1413.7915525792942!2d78.14088927806552!3d9.141709540507742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b01859c8491c323%3A0xc619f723652e0618!2s107J%2F133%2C%20Anna%20Nagar%2C%20Thoothukkudi%2C%20Tamil%20Nadu%20628008%2C%20India!5e0!3m2!1sen!2sus!4v1722511413813!5m2!1sen!2sus"
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
